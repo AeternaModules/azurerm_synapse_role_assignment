@@ -1,3 +1,7 @@
+output "synapse_role_assignments_id" {
+  description = "Map of id values across all synapse_role_assignments, keyed the same as var.synapse_role_assignments"
+  value       = { for k, v in azurerm_synapse_role_assignment.synapse_role_assignments : k => v.id }
+}
 output "synapse_role_assignments_principal_id" {
   description = "Map of principal_id values across all synapse_role_assignments, keyed the same as var.synapse_role_assignments"
   value       = { for k, v in azurerm_synapse_role_assignment.synapse_role_assignments : k => v.principal_id }
